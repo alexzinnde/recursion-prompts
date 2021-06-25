@@ -112,9 +112,6 @@ var palindrome = function(string) {
           palindrome(string.substring(1, string.length - 1)) : false;
 };
 
-console.log(palindrome('o'));
-console.log(palindrome('racecar'));
-
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
 // modulo(5,2) // 1
