@@ -50,7 +50,27 @@ var sumBelow = function(n) {
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
+// should return empty array if no integers in range
+// range(5, 5); // []
+// range(2, 3); // []
+
+// should accept negative numbers
+// range(-9, -4) // [-9, -8, -7, -6, -5]
+// range(-3, 2) // [-2, -1, 0, 1]
+// range(-3, -2) // []
+// range(-2, -2) // []
+
+// should accept a starting number that is larger than the ending
+// range(7, 2) // [6, 5, 4, 3]
+// range(3, -2) // [2, 1, 0, -1]
+// range(-3, -2) // []
+// range(-2, -2) // []
 var range = function(x, y) {
+  if (x === y) return [];
+  if (x === y - 1 || x - 1 === y) return [];
+
+  if (x < y) return [x + 1].concat(range(x + 1, y));
+  if (x > y) return [x - 1].concat(range(x - 1, y));
 };
 
 // 7. Compute the exponent of a number.
