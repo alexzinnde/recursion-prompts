@@ -227,8 +227,6 @@ var fizzBuzz = function (n) {
   return [].concat(fizzBuzz(n - 1), String(n));
 };
 
-
-
 // 20. Count the occurrence of a value in a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
@@ -242,6 +240,10 @@ var countOccurrence = function (array, value) {
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function (array, callback) {
+
+  return array.length === 0 ?
+    [] :
+    [callback(array.slice().shift())].concat(rMap(array.slice(1), callback));
 };
 
 // 22. Write a function that counts the number of times a key occurs in an object.
