@@ -154,10 +154,7 @@ var divide = function (x, y) {
   }
 
   if (y < 0) {
-    if (- x < -y) {
-      return 0;
-    }
-    return 1 + divide(x + y, y);
+    return -x < - y ? 0 : 1 + divide(x + y, y);
   }
 
   return  1 + divide(x - y, y);
@@ -211,8 +208,26 @@ var buildList = function (value, length) {
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function (n) {
+  if (n === 1) {
+    return ['1'];
+  }
 
+  if (n % 3 === 0 && n % 5 === 0) {
+    return [].concat(fizzBuzz(n - 1), 'FizzBuzz')
+  }
+
+  if (n % 3 === 0) {
+    return [].concat(fizzBuzz(n - 1), 'Fizz');
+  }
+
+  if (n % 5 === 0) {
+    return [].concat(fizzBuzz(n - 1), 'Buzz');
+  }
+
+  return [].concat(fizzBuzz(n - 1), String(n));
 };
+
+
 
 // 20. Count the occurrence of a value in a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
